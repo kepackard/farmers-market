@@ -7,9 +7,9 @@ require("dotenv").config();
 
 //index route
 
-app.get("/apples", (req, res) =>
-    res.send(apples)
-);
+app.get("/apples", (req, res) => {
+    res.render("index.ejs")
+});
 
 
 app.listen(PORT, () => {
