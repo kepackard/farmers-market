@@ -11,6 +11,7 @@ app.get("/apples/", (req, res) => {
     // console.log(varieties)
     res.render("index.ejs", {
         allVarieties: varieties,
+        variety: varieties,
     })
 });
 
