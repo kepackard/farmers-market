@@ -13,8 +13,16 @@
         <% for(let i = 0; i < allVarieties.length; i++){ %>
         <li>
             <a href="/apples/<%=i%>"><%=allVarieties[i].name %></a>
+            <img src="<%=allVarieties[i].img %>"/>
         </li>
+        <a href="/apples/<%=i; %>/edit">Edit</a>
         <% } %>
     </ul>
 </body>
+
+<footer>Sources<br>
+    <a href=https://www.applesfromny.com/varieties/?fwp_search=pearmain>Apples From New York</a><br>
+    <a href=https://extension.wsu.edu/maritimefruit/apple-varieties-for-cooking-baking-cider/>Washington State University</a><br>
+    <a href=https://en.wikipedia.org/wiki/List_of_apple_cultivars>Wikipedia</a><br>
+</footer>
 </html>

@@ -20,22 +20,16 @@ app.get("/apples/new", (req, res) => {
     res.render("new.ejs")
 });
 
-//show route
-app.get("/apples/:id", (req, res) => {
-    res.render("show.ejs", {
-        variety: varieties[req.params.id],
-    })
-});
 
 //edit route
-// app.get("/apples/indexOfApplesArray", (req, res) => {
-//     res.render("edit.ejs, 
-//         {
-//             allVarieties: varieties[req.params.indexOfApplesArray], 
-//             index: req.params.indexOfApplesArray
-//         }
-//     )
-// });
+app.get("/apples/indexOfApplesArray", (req, res) => {
+    res.render("edit.ejs", 
+        {
+            allVarieties: varieties[req.params.indexOfApplesArray], 
+            index: req.params.indexOfApplesArray
+        }
+    )
+});
 
 // create route
 app.post("/apples", (req, res) => {
@@ -49,6 +43,13 @@ app.post("/apples", (req, res) => {
     },
         varieties.push(req.body);
     res.redirect("/apples")
+});
+
+//show route
+app.get("/apples/:id", (req, res) => {
+    res.render("show.ejs", {
+        variety: varieties[req.params.id],
+    })
 });
 
 app.listen(PORT, () => {

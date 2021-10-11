@@ -8,5 +8,14 @@
 </head>
 <body>
     <p>Edit this Item</p>
+    <form action="/apples/<%=id%>?_method="PUT" method="POST">
+        Name: <input type="text" name="name"><br>
+        Upload Image: <input type="url" name="upload-image"><br>
+        Date: <input type="number" name="date"><br>
+        Location: <input type="text" name="location"><br>
+        Appearance: <input type="text" name="appearance"><br>
+        Uses: <input type="type" name="uses"><br>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
