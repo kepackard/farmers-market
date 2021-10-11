@@ -8,11 +8,15 @@ require("dotenv").config();
 //index route
 
 app.get("/apples/", (req, res) => {
-    // console.log(varieties)
     res.render("index.ejs", {
         allVarieties: varieties,
         variety: varieties,
     })
+});
+
+//new route
+app.get("/apples/new", (req, res) => {
+    res.render("new.ejs")
 });
 
 //show route
@@ -21,6 +25,16 @@ app.get("/apples/:id", (req, res) => {
         variety: varieties[req.params.id],
     })
 });
+
+//edit route
+// app.get("/apples/indexOfApplesArray", (req, res) => {
+//     res.render("edit.ejs, 
+//         {
+//             allVarieties: varieties[req.params.indexOfApplesArray], 
+//             index: req.params.indexOfApplesArray
+//         }
+//     )
+// });
 
 app.listen(PORT, () => {
     console.log(`Express is listening on port ${PORT}`)

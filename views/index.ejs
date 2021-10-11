@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Page</title>
+</head>
+<body>
+    <h1>Apple Page</h1>
+    <nav><a href="/apples/new">Add a New Variety Here</a></nav>
+    <ul>
+        <% for(let i = 0; i < allVarieties.length; i++){ %>
+        <li>
+            <a href="/apples/<%=i%>"><%=allVarieties[i].name %></a>
+        </li>
+        <% } %>
+    </ul>
+</body>
+</html>
