@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3000
 
 const varieties = require("./models/varieties.js")
 require("dotenv").config();
+app.use(express.urlencoded({ extended: false }))
 
 //index route
 
@@ -35,6 +36,20 @@ app.get("/apples/:id", (req, res) => {
 //         }
 //     )
 // });
+
+// create route
+app.post("/apples", (req, res) => {
+    req.body = {
+        name: req.body.name, 
+        img: req.body.img,
+        date: req.body.date,
+        location: req.body.location,
+        appearance: req.body.appearance,
+        uses: req.body.appearance,
+    },
+        varieties.push(req.body);
+    res.redirect("/apples")
+});
 
 app.listen(PORT, () => {
     console.log(`Express is listening on port ${PORT}`)
