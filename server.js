@@ -20,6 +20,16 @@ app.get("/apples/new", (req, res) => {
     res.render("new.ejs")
 });
 
+//delete route
+app.delete("/apples/indexOfApplesArray", (req, res) => {
+    allVarieties.splice(req.params.indexOfApplesArray,1)
+        res.redirect("/apples/")
+});
+
+
+//update route
+
+
 
 //edit route
 app.get("/apples/indexOfApplesArray", (req, res) => {

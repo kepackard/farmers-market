@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
     <title>Apple Page</title>
 </head>
 <body>
-    <h1>Apple Page</h1>
-    <nav><a href="/apples/new">Add a New Variety Here</a></nav>
-    <ul>
-        <% for(let i = 0; i < allVarieties.length; i++){ %>
-        <li>
-            <a href="/apples/<%=i%>"><%=allVarieties[i].name %></a>
-            <img src="<%=allVarieties[i].img %>"/>
-        </li>
-        <a href="/apples/<%=i; %>/edit">Edit</a>
-        <% } %>
-    </ul>
+    <div container>
+        <div heading><h1>Apple Page</h1></div>
+            <nav><a href="/apples/new">Add a New Variety Here</a></nav>
+            <tbody>
+                <ul>
+                <% for(let i = 0; i < allVarieties.length; i++){ %>
+                    <li>
+                        <a href="/apples/"<%=i%>><%=allVarieties[i].name %></a>
+                        <img src="<%=allVarieties[i].img %>"/>
+                    </li>
+                    <form action="/apples/<%=i; %>/edit"><input type="submit" value="Edit this Apple" />
+                    </form>
+                    <form action="/apples/<%=i; %>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete this Apple" />
+                    </form>
+                    <% } %>
+                </ul>
+            </tbody>
+    </div>
 </body>
 
 <footer>Sources<br>
