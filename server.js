@@ -30,10 +30,10 @@ app.get("/markets/", (req, res) => {
     })
 });
 
-// //new route
-// app.get("/markets/new", (req, res) => {
-//     res.render("new.ejs")
-// });
+//new route
+app.get("/markets/new", (req, res) => {
+    res.render("new.ejs")
+});
 
 // //delete route
 // app.delete("/markets/:id", (req, res) => {
