@@ -29,6 +29,9 @@
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
   max-width: 960px;
@@ -126,7 +129,7 @@ body {
   font-weight: 400;
   font-family: "Helvetica", sans serif;
   color: #222; 
-  background-color:seashell;
+  background-color:whitesmoke;
 }
 
 
@@ -137,6 +140,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2rem;
   font-weight: 300; }
 h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem; 
+  font-family: 'Cabin Sketch', cursive;
+  color: rgb(129,40,58);
+}
+.heading {
+  background-color: rgb(200,110,119);
+}
+p {
   font-family: 'Cabin Sketch', cursive;
 }
 h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
