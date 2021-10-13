@@ -60,18 +60,12 @@ app.get("/markets/new", (req, res) => {
 //     )
 // });
 
-// // create route
-// app.post("/markets", (req, res) => {
-//     req.body = {
-//         name: req.body.name, 
-//         address: req.body.address,
-//         date: req.body.date,
-//         hours: req.body.hours,
-//         wares: req.body.wares,
-//     },
-//         Market.push(req.body);
-//     res.redirect("/markets")
-// });
+// create route
+app.post("/markets", (req, res) =>
+    Market.create(req.body, (err, createdMarket) => {
+        res.redirect("/markets")
+    })
+);
 
 // //show route
 // app.get("/markets/:id", (req, res) => {
