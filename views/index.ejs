@@ -5,24 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/normalize.css" />
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
-    <title>Apple Page</title>
+    <link rel="stylesheet" href="/skeleton.css" />
+    <title>Farmers Markets</title>
 </head>
 <body>
     <div container>
-        <div heading><h1>Apple Page</h1></div>
-            <nav><a href="/apples/new">Add a New Variety Here</a></nav>
+        <div heading><h1>Farmers Markets</h1></div>
+            <form action="/markets/new"><input type="submit" value="Add a New Market"</a>
             <tbody>
                 <ul>
-                <% for(let i = 0; i < allVarieties.length; i++){ %>
+                <% for(let i = 0; i < markets.length; i++){ %>
                     <li>
-                        <a href="/apples/"<%=i%>><%=allVarieties[i].name %></a>
-                        <img src="<%=allVarieties[i].img %>"/>
+                        <a href="/markets/<%=i%>"><%=markets[i].name %></a>
+                        <img src="<%=markets[i].img %>"/>
                     </li>
-                    <form action="/apples/<%=i; %>/edit"><input type="submit" value="Edit this Apple" />
+                    <form action="/markets/<%=i; %>/edit"><input type="submit" value="Edit this Entry" />
                     </form>
-                    <form action="/apples/<%=i; %>?_method=DELETE" method="POST">
-                        <input type="submit" value="Delete this Apple" />
+                    <form action="/markets/<%=i; %>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete this Entry" />
                     </form>
                     <% } %>
                 </ul>
