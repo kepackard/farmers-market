@@ -28,21 +28,28 @@
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.container {
+.wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box; }
+  height: 100vh;
+  border: 1px dotted blue;} /* remove this later*/
+
 .column,
 .columns {
   width: 100%;
   float: left;
-  box-sizing: border-box; }
+  box-sizing: border-box; 
+}
+
+/* .cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card {
+  flex: 0 1 24%;
+} */
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
@@ -174,7 +181,8 @@ p {
 a {
   color: rgb(129,40,58); }
 a:hover {
-  color: rgb(200,110,119); }
+  color: white; 
+}
 
 
 /* Buttons
@@ -236,6 +244,25 @@ input[type="button"].button-primary:focus {
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
 
+input[type="new-submit"] {
+  background-color: rgb(141,96,91);
+  border: 1px solid rgb(141,96,91); 
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box; }
+}
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
