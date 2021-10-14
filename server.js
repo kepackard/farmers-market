@@ -44,21 +44,20 @@ app.delete("/:id", (req, res) => {
 });
 
 
-// // //update route
-// // app.put("/markets/:indexOfMarketsArray", (req, res) => {
-// //     varieties[req.params.indexOfMarketsArray] = req.body 
-// //         res.redirect("/markets")
-// // });
+//update route
+app.put("/:id", (req, res) => {
+    Market[req.params.id] = req.body 
+        res.redirect("/")
+});
 
 
 //edit route
-app.get("/:id/edit/", (req, res) => {
-    res.render("edit.ejs", 
-        {
-            allMarkets: markets[req.params.indexOfMarketsArray], 
-            index: req.params.indexOfMarketsArray
-        }
-    )
+app.get("/:id/edit", (req, res) => {
+    Market.findById(req.params.id, (error, foundMarket) => {
+        res.render("edit.ejs", {
+            market: foundMarket,
+        }) 
+    })
 });
 
 // create route
@@ -69,12 +68,12 @@ app.post("/", (req, res) => {
     })
 });
 
-// //show route
-// app.get("/:id", (req, res) => {
-//     res.render("show.ejs", {
-//         Market: markets[req.params.id],
-//     })
-// });
+//show route
+app.get("/:id", (req, res) => {
+    res.render("show.ejs", {
+        Market: markets[req.params.id],
+    })
+});
 
 app.listen(PORT, () => {
     console.log(`Express is listening on port ${PORT}`)
