@@ -9,11 +9,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');
     </style>
-    <title>Edit This Market Entry</title>
+    <title>Edit <%=market.name %></title>
 </head>
 <body>
-    <p>Edit this Entry</p>
-    <form action="/<%=market.id %>/edit?_method="PUT" method="POST">
+    <h1>Edit <%=market.name %></h1>
+    <form action="/<%=market.id %>?_method=PUT" method="POST">
         Name: <input type="text" name="name"><br>
         Address: <input type="text" name="address"><br>
         Dates: <input type="text" name="dates"><br>

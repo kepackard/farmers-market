@@ -46,8 +46,16 @@ app.delete("/:id", (req, res) => {
 
 //update route
 app.put("/:id", (req, res) => {
-    Market[req.params.id] = req.body 
+    Market.findByIdAndUpdate(
+        req.params.id,
+        req.body, 
+        {
+          new: true,  
+        },
+        (error, updatedMarket) => {
         res.redirect("/")
+        }
+    )   
 });
 
 
@@ -63,7 +71,6 @@ app.get("/:id/edit", (req, res) => {
 // create route
 app.post("/", (req, res) => {
     Market.create(req.body, (err, createdMarket) => {
-    
         res.redirect("/")
     })
 });
