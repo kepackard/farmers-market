@@ -16,14 +16,14 @@
         <div container>
             <div class="heading">
                 <h1>Farmers Markets</h1>
-                <nav><a href="/markets/new">Found a New Market? Add here!</a></nav>
+                <nav><a href="/new">Found a New Market? Add here!</a></nav>
             </div>
                 <tbody>
                     <ul>
                         <% for(let i = 0; i < markets.length; i++){ %>
                             <li>
-                              <a href="/markets/<%=markets[i]._id%>"><%=markets[i].name %></a>
-                              <form action="/markets/<%= markets[i]._id; %>?_method=DELETE" method="POST">
+                              <a href="/<%=markets[i]._id%>"><%=markets[i].name %></a>
+                              <form action="/<%= markets[i]._id; %>?_method=DELETE" method="POST">
                                     <input type="submit" value="Delete this Entry" />
                                 </form>
                             </li>

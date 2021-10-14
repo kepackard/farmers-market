@@ -23,7 +23,7 @@ db.on('error', (error) => console.log('MongoDB Error ' + error.message));
 //ROUTES
 
 //index route
-app.get("/markets/", (req, res) => {
+app.get("/", (req, res) => {
     Market.find({}, (err, foundMarkets) => {
         res.render("index.ejs", {
             markets: foundMarkets
@@ -32,14 +32,14 @@ app.get("/markets/", (req, res) => {
 });
 
 //new route
-app.get("/markets/new", (req, res) => {
+app.get("/new", (req, res) => {
     res.render("new.ejs")
 });
 
 //delete route
-app.delete("/markets/:id", (req, res) => {
+app.delete("/:id", (req, res) => {
     Market.findByIdAndDelete(req.params.id, (err, data) => {
-        res.redirect("/markets")
+        res.redirect("/")
     })
 });
 
@@ -52,7 +52,7 @@ app.delete("/markets/:id", (req, res) => {
 
 
 //edit route
-app.get("/markets/:id/edit/", (req, res) => {
+app.get("/:id/edit/", (req, res) => {
     res.render("edit.ejs", 
         {
             allMarkets: markets[req.params.indexOfMarketsArray], 
@@ -62,7 +62,7 @@ app.get("/markets/:id/edit/", (req, res) => {
 });
 
 // create route
-app.post("/markets", (req, res) => {
+app.post("/", (req, res) => {
     req.body = {
         name: req.body.name,
         address: req.body.address,
@@ -71,7 +71,7 @@ app.post("/markets", (req, res) => {
         wares: req.body.wares,
     },
     Market.push.req.body;
-    res.redirect("/markets/");
+    res.redirect("/");
 });
 
 // //show route
