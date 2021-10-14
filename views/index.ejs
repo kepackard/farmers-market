@@ -22,8 +22,11 @@
                     <ul>
                         <% for(let i = 0; i < markets.length; i++){ %>
                             <li>
-                              <a href="/<%=markets[i]._id%>"><%=markets[i].name %></a>
-                              <form action="/<%= markets[i]._id; %>?_method=DELETE" method="POST">
+                                <a href="/<%=markets[i]._id%>"><%=markets[i].name %></a>
+                                <form action="/<%=markets[i]._id; %>/edit">
+                                    <input type="submit" value="Edit this Entry" />
+                                </form> 
+                                <form action="/<%= markets[i]._id; %>?_method=DELETE" method="POST">
                                     <input type="submit" value="Delete this Entry" />
                                 </form>
                             </li>
