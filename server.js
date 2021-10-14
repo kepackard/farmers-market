@@ -6,11 +6,12 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const methodOverride = require("method-override");
 const morgan = require("morgan");
-const Market = require("./models/markets.js")
+const Market = require("./models/market.js")
 
 //middleware
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static("public"))
+app.use(methodOverride("_method"))
 
 //database
 const DATABASE_URL = process.env.DATABASE_URL;
@@ -35,12 +36,12 @@ app.get("/markets/new", (req, res) => {
     res.render("new.ejs")
 });
 
-// //delete route
-// app.delete("/markets/:id", (req, res) => {
-//     Market.findByIdAndRemove(req.params.id, (err, data) => {
-//         res.redirect("/markets/")
-//     })
-// });
+//delete route
+app.delete("/markets/:id", (req, res) => {
+    Market.findByIdAndDelete(req.params.id, (err, data) => {
+        res.redirect("/markets")
+    })
+});
 
 
 // // //update route
@@ -50,29 +51,30 @@ app.get("/markets/new", (req, res) => {
 // // });
 
 
-// //edit route
-// app.get("/markets/indexOfApplesArray", (req, res) => {
-//     res.render("edit.ejs", 
-//         {
-//             allMarkets: varieties[req.params.indexOfMarketArray], 
-//             index: req.params.indexOfMarketsArray
-//         }
-//     )
-// });
+//edit route
+app.get("/markets/:id/edit/", (req, res) => {
+    res.render("edit.ejs", 
+        {
+            allMarkets: markets[req.params.indexOfMarketsArray], 
+            index: req.params.indexOfMarketsArray
+        }
+    )
+});
 
 // create route
 app.post("/markets", (req, res) =>
     Market.create(req.body, (err, createdMarket) => {
+        res.send(createdMarket)
         res.redirect("/markets")
     })
 );
 
-// //show route
-// app.get("/markets/:id", (req, res) => {
-//     res.render("show.ejs", {
-//         Market: markets[req.params.id],
-//     })
-// });
+//show route
+app.get("/markets/:id", (req, res) => {
+    res.render("show.ejs", {
+        Market: markets[req.params.id],
+    })
+});
 
 app.listen(PORT, () => {
     console.log(`Express is listening on port ${PORT}`)

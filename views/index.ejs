@@ -12,30 +12,25 @@
     <title>Farmers Markets</title>
 </head>
 <body>
-    <div container>
-        <div heading><h1>Farmers Markets</h1></div>
-            <form action="/markets/new"><input type="submit" value="Add a New Market"</a>
-            <tbody>
-                <ul>
-                <% for(let i = 0; i < markets.length; i++){ %>
-                    <li>
-                        <a href="/markets/<%=i%>"><%=markets[i].name %></a>
-                        <img src="<%=markets[i].img %>"/>
-                    </li>
-                    <form action="/markets/<%=i; %>/edit"><input type="submit" value="Edit this Entry" />
-                    </form>
-                    <form action="/markets/<%=i; %>?_method=DELETE" method="POST">
-                        <input type="submit" value="Delete this Entry" />
-                    </form>
-                    <% } %>
-                </ul>
-            </tbody>
-    </div>
+    <div class="wrapper">
+        <div container>
+            <div class="heading">
+                <h1>Farmers Markets</h1>
+                <nav><a href="/markets/new">Found a New Market? Add here!</a></nav>
+            </div>
+                <tbody>
+                    <ul>
+                        <% for(let i = 0; i < markets.length; i++){ %>
+                            <li>
+                              <a href="/markets/<%=markets[i]._id%>"><%=markets[i].name %></a>
+                              <form action="/markets/<%= markets;[i]._id; %>?_method=DELETE" method="POST">
+                                    <input type="submit" value="Delete this Entry" />
+                                </form>
+                            </li>
+                        <% } %>
+                    </ul>
+                </tbody>
+        </div>
+    </div>    
 </body>
 
-<footer>Sources<br>
-    <a href=https://www.applesfromny.com/varieties/?fwp_search=pearmain>Apples From New York</a><br>
-    <a href=https://extension.wsu.edu/maritimefruit/apple-varieties-for-cooking-baking-cider/>Washington State University</a><br>
-    <a href=https://en.wikipedia.org/wiki/List_of_apple_cultivars>Wikipedia</a><br>
-</footer>
-</html>
