@@ -63,19 +63,14 @@ app.get("/:id/edit/", (req, res) => {
 
 // create route
 app.post("/", (req, res) => {
-    req.body = {
-        name: req.body.name,
-        address: req.body.address,
-        dates: req.body.dates,
-        hours: req.body.hours,
-        wares: req.body.wares,
-    },
-    Market.push.req.body;
-    res.redirect("/");
+    Market.create(req.body, (err, createdMarket) => {
+    
+        res.redirect("/")
+    })
 });
 
 // //show route
-// app.get("/markets/:id", (req, res) => {
+// app.get("/:id", (req, res) => {
 //     res.render("show.ejs", {
 //         Market: markets[req.params.id],
 //     })
