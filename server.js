@@ -62,19 +62,24 @@ app.get("/markets/:id/edit/", (req, res) => {
 });
 
 // create route
-app.post("/markets", (req, res) =>
-    Market.create(req.body, (err, createdMarket) => {
-        res.send(createdMarket)
-        res.redirect("/markets")
-    })
-);
-
-//show route
-app.get("/markets/:id", (req, res) => {
-    res.render("show.ejs", {
-        Market: markets[req.params.id],
-    })
+app.post("/markets", (req, res) => {
+    req.body = {
+        name: req.body.name,
+        address: req.body.address,
+        dates: req.body.dates,
+        hours: req.body.hours,
+        wares: req.body.wares,
+    },
+    Market.push.req.body;
+    res.redirect("/markets/");
 });
+
+// //show route
+// app.get("/markets/:id", (req, res) => {
+//     res.render("show.ejs", {
+//         Market: markets[req.params.id],
+//     })
+// });
 
 app.listen(PORT, () => {
     console.log(`Express is listening on port ${PORT}`)
