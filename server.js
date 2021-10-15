@@ -58,6 +58,12 @@ app.put("/:id", (req, res) => {
     )   
 });
 
+// create route
+app.post("/", (req, res) => {
+    Market.create(req.body, (err, createdMarket) => {
+        res.redirect("/")
+    })
+});
 
 //edit route
 app.get("/:id/edit", (req, res) => {
@@ -68,17 +74,13 @@ app.get("/:id/edit", (req, res) => {
     })
 });
 
-// create route
-app.post("/", (req, res) => {
-    Market.create(req.body, (err, createdMarket) => {
-        res.redirect("/")
-    })
-});
 
 //show route
 app.get("/:id", (req, res) => {
-    res.render("show.ejs", {
-        Market: markets[req.params.id],
+    Market.findById(req.params.id, (err, foundMarket) => {
+        res.render("show.ejs", {
+        market: foundMarket,
+        })
     })
 });
 

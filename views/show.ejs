@@ -11,12 +11,13 @@
     </style>
 </head>
 <body>
-    <title><%=market.name%></title>
-    <h2><%=market.name%></h2>
-    <p><%=market.img%></p>
-    <p>Date: <%=market.date%></p>
-    <p>Location: <%=market.location%></p>
-    <p>Appearance: <%=market.appearance%></p>
-    <p>Best For: <%=market.uses%></p>
+    <h1> <%= market.name %></h1>
+    <h5>Address: <%=market.address%></h5>
+    <h5>Dates: <%=market.dates%></h5>
+    <h5>Hours: <%=market.hours%></h5>
+    <h5>Wares: <%=market.wares%></h5><br>
+    <nav>
+        <a href="/">Back to Home</a>
+    </nav>
 </body>
 </html>

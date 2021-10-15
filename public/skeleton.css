@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .column,
@@ -329,7 +329,10 @@ label > .label-body {
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
-  list-style: circle inside; }
+  list-style: circle inside;
+  list-style-type: none;
+}
+
 ol {
   list-style: decimal inside; }
 ol, ul {
