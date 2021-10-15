@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
-const Market = require("./models/market.js")
+
 
 //initialize express app
 const app = express();
@@ -27,70 +27,10 @@ app.use(express.static("public"))
 app.use(methodOverride("_method"))
 app.use(morgan("dev"));
 
+// Routes / Controllers
+const marketController = require("./controllers/routes")
+app.use("/", marketController)
 
-//ROUTES
-
-//index route
-app.get("/", (req, res) => {
-    Market.find({}, (err, foundMarkets) => {
-        res.render("index.ejs", {
-            markets: foundMarkets
-        })
-    })
-});
-
-//new route
-app.get("/new", (req, res) => {
-    res.render("new.ejs")
-});
-
-//delete route
-app.delete("/:id", (req, res) => {
-    Market.findByIdAndDelete(req.params.id, (err, data) => {
-        res.redirect("/")
-    })
-});
-
-
-//update route
-app.put("/:id", (req, res) => {
-    Market.findByIdAndUpdate(
-        req.params.id,
-        req.body, 
-        {
-          new: true,  
-        },
-        (error, updatedMarket) => {
-        res.redirect("/")
-        }
-    )   
-});
-
-// create route
-app.post("/", (req, res) => {
-    Market.create(req.body, (err, createdMarket) => {
-        res.redirect("/")
-    })
-});
-
-//edit route
-app.get("/:id/edit", (req, res) => {
-    Market.findById(req.params.id, (error, foundMarket) => {
-        res.render("edit.ejs", {
-            market: foundMarket,
-        }) 
-    })
-});
-
-
-//show route
-app.get("/:id", (req, res) => {
-    Market.findById(req.params.id, (err, foundMarket) => {
-        res.render("show.ejs", {
-        market: foundMarket,
-        })
-    })
-});
 
 app.listen(PORT, () => {
     console.log(`Express is listening on port ${PORT}`)
