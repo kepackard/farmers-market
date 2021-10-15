@@ -38,7 +38,6 @@ _______________________
 #### **NEXT STEPS AND FUTURE ENHANCEMENTS**
 
 * Incorporate EJS partials.
-* Create external controller file for routes.
 * Search for a market by name.
 * User authentication.
 * Implement basic authorization.
