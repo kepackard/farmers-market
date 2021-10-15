@@ -1,24 +1,32 @@
 //dependencies
 const express = require("express")
-const app = express();
 const PORT = process.env.PORT || 3000
 const mongoose = require("mongoose");
-require("dotenv").config();
 const methodOverride = require("method-override");
 const morgan = require("morgan");
 const Market = require("./models/market.js")
+
+//initialize express app
+const app = express();
+
+//configure app settings
+require("dotenv").config();
+const DATABASE_URL = process.env.DATABASE_URL;
+
+//connect to MongoDB
+mongoose.connect(DATABASE_URL);
+
+const db = mongoose.connection;
+db.on('connected', () => console.log('Connected to MongoDB'));
+db.on('error', (error) => console.log('MongoDB Error ' + error.message));
+
 
 //middleware
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static("public"))
 app.use(methodOverride("_method"))
+app.use(morgan("dev"));
 
-//database
-const DATABASE_URL = process.env.DATABASE_URL;
-mongoose.connect(DATABASE_URL);
-const db = mongoose.connection;
-db.on('connected', () => console.log('Connected to MongoDB'));
-db.on('error', (error) => console.log('MongoDB Error ' + error.message));
 
 //ROUTES
 
