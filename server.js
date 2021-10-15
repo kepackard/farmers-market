@@ -11,10 +11,10 @@ const app = express();
 
 //configure app settings
 require("dotenv").config();
-const DATABASE_URL = process.env.DATABASE_URL;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 //connect to MongoDB
-mongoose.connect(DATABASE_URL);
+mongoose.connect(MONGODB_URI);
 
 const db = mongoose.connection;
 db.on('connected', () => console.log('Connected to MongoDB'));
