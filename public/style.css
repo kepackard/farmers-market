@@ -1,0 +1,24 @@
+body {
+    background-color:whitesmoke;
+}
+
+h1 {  
+    font-family: 'Cabin Sketch', cursive;
+    color: rgb(129,40,58);
+}
+
+.heading {
+    background-color: rgb(200,110,119);
+}
+
+p {
+    font-family: 'Cabin Sketch', cursive;
+}
+
+a {
+    color: rgb(129,40,58); 
+}
+
+a:hover {
+    color: white; 
+}  
