@@ -23,7 +23,7 @@ _______________________
 
 #### **TECHNOLOGIES USED**
 
-HTML, CSS, Javascript, Express.js, MongoDB, Mongoose, Postman, Heroku
+HTML, CSS, Javascript, Express.js, MongoDB, Mongoose, Postman, Netlify
 
 _______________________
 
