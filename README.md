@@ -31,7 +31,7 @@ _______________________
 
 A user browses the 10+ local farmers markets on the home page. Click on a market name to be taken to the page with details about dates, hours, and location. 
 
-[Click here to get started!](https://floating-ocean-08052.herokuapp.com/)
+[Click here to get started!](https://farmers-market-kph.netlify.app/)
 
 _______________________
 
